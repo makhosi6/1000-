@@ -1,6 +1,7 @@
 {
     "include": ["src/**/*.*"],
       "compilerOptions": {
+        "moduleResolution" :"Node",
           "strict": true,
           "target": "es2017",
           "module": "esnext",

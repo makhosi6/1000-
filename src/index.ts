@@ -1,19 +1,18 @@
+import { Browser } from "../node_modules/puppeteer/lib/types";
+const puppeteer  = require('puppeteer-core');
 
-let unixtime = 90
-
-
-const now = new Date().getTime() // - (2*60*60*1000);
-  console.log('Unixtime ' + unixtime)
-  console.log('now ' + now)
-  const duration = Math.abs(unixtime - now)
-  //const lastupdated = this.msToTime(elapes)
-  let lastupdated = ''
-  let seconds = Math.floor((duration / 1000) % 60)
-  let minutes = Math.floor((duration / (1000 * 60)) % 60)
-  let hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+import {task} from './job/words'
 
 
 
-  console.log({
-      seconds,minutes,hours, duration, unixtime
-  })
+const launch = async () : Promise<Browser> => await puppeteer.launch({
+  headless: false,
+  userDataDir: './data/user_dir'
+});
+
+
+let alphaArr = ['0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+launch().then(browser => alphaArr.map(alpha => task(browser, alpha, '1')));
+
+
+

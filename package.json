@@ -1,10 +1,10 @@
 {
-  "name": " ",
+  "name": "words",
   "version": "1.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-	"types": "dist/esm/index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "keywords": [],
   "license": "MIT",
   "author": "makhosi6",
@@ -27,5 +27,8 @@
     "babel-jest": "^27.3.1",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7"
+  },
+  "dependencies": {
+    "puppeteer": "^15.3.2"
   }
 }
