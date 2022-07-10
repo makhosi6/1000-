@@ -1,19 +1,22 @@
+import { Browser } from "../node_modules/puppeteer/lib/types";
+const puppeteer = require("puppeteer");
 
-let unixtime = 90
+import { task } from "./job/words";
 
+const launch = async (): Promise<Browser> =>
+  await puppeteer.launch({
+    headless: false,
+    userDataDir: "./cache/user_dir",
+    executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  });
 
-const now = new Date().getTime() // - (2*60*60*1000);
-  console.log('Unixtime ' + unixtime)
-  console.log('now ' + now)
-  const duration = Math.abs(unixtime - now)
-  //const lastupdated = this.msToTime(elapes)
-  let lastupdated = ''
-  let seconds = Math.floor((duration / 1000) % 60)
-  let minutes = Math.floor((duration / (1000 * 60)) % 60)
-  let hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+// let alphaArr = ['0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+// alphaArr.map(alpha => launch().then((browser) => task(browser, alpha, '1')));
 
-
-
-  console.log({
-      seconds,minutes,hours, duration, unixtime
-  })
+launch().then((br) => {
+  try {
+    task(br, "c", "33");
+  } catch (error) {
+    console.log("++++++");
+  }
+});

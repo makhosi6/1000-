@@ -1,10 +1,10 @@
 {
-  "name": " ",
+  "name": "words",
   "version": "1.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-	"types": "dist/esm/index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "keywords": [],
   "license": "MIT",
   "author": "makhosi6",
@@ -13,19 +13,29 @@
     "build": "rollup -c",
     "watch": "rollup -c --watch",
     "test": "./node_modules/.bin/jest",
-    "fixup": "bash fixup.sh"
+    "fixup": "bash fixup.sh",
+    "dev": "nodemon dist/cjs/index.js",
+    "start": "node dist/cjs/index.js --unhandled-rejections=strict",
+    "demon": "pm2 start dist/cjs/index.js --force --time --max-memory-restart 2000M --log words-logs.log -- --expose-gc",
+    "api": "json-server --id _id src/data/Cc.json",
+    "server": "json-server --port 3004 --id _id src/data/Cc.json"
   },
   "devDependencies": {
-    "rollup": "^2.21.0",
-    "typescript": "^3.9.6",
-    "@wessberg/rollup-plugin-ts": "^1.2.28",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@testing-library/jest-dom": "^5.16.2",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.21",
+    "@wessberg/rollup-plugin-ts": "^1.2.28",
     "babel-jest": "^27.3.1",
     "jest": "^27.3.1",
-    "ts-jest": "^27.0.7"
+    "nodemon": "^2.0.19",
+    "rollup": "^2.21.0",
+    "ts-jest": "^27.0.7",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0",
+    "puppeteer": "^15.3.2"
   }
 }
