@@ -66,6 +66,19 @@ const addToDB = (word, port = 3000) => __awaiter(void 0, void 0, void 0, functio
 //   ]
 // }
 
+const fs = require('fs');
+/**
+ * @description add a new entry on the file mentioned below(/words.text), every item will be add on a new line
+ * @param {string} data
+ * @returns
+ */
+const writeTxt = (data) => fs.writeFile("./words.txt", "\n" + data, { flag: 'a+' }, function (err) {
+    if (err) {
+        return console.log(err);
+    }
+    console.log("The file was saved!");
+});
+
 /**
  * 'var' statement declares a function-scoped or globally-scoped variable, so you will see 'var' in a number of place. DO PANIC!!
  * @param {Browser} browser
@@ -112,6 +125,8 @@ const task = (browser, search, currentPage) => __awaiter(void 0, void 0, void 0,
                 .then((raw) => __awaiter(void 0, void 0, void 0, function* () {
                 console.log({ word: raw });
                 // save text
+                writeTxt(raw);
+                //
                 yield addToDB(raw);
             }));
         }));

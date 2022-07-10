@@ -6,7 +6,7 @@ const fs = require('fs');
  * @param {string} data 
  * @returns 
  */
-export const writeTxt = (data: string) =>  fs.writeFile("./words.txt", data, { flag: 'a+' }, function(err: any) {
+export const writeTxt = (data: string) =>  fs.writeFile("./words.txt", "\n"+data, { flag: 'a+' }, function(err: any) {
     if(err) {
         return console.log(err);
     }

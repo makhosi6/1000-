@@ -36,6 +36,9 @@
   },
   "dependencies": {
     "json-server": "^0.17.0",
+    "ts-jest": "^27.0.7"
+  },
+  "dependencies": {
     "puppeteer": "^15.3.2"
   }
 }
