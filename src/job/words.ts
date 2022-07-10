@@ -65,7 +65,7 @@ export const task = async (
           .then(async (raw) => {
             console.log({ word: raw });
             // save text
-            writeTxt(raw)
+            writeTxt(raw, search)
 
             //
             await addToDB(raw);

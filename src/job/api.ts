@@ -45,7 +45,7 @@ export const addToDB = async (word: string, port = 3000): Promise<void> => {
 
     console.log({ word });
 
-    addToDB(word, 3004);
+    // addToDB(word, 3004);
   }
 };
 

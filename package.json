@@ -17,8 +17,8 @@
     "dev": "nodemon dist/cjs/index.js",
     "start": "node dist/cjs/index.js --unhandled-rejections=strict",
     "demon": "pm2 start dist/cjs/index.js --force --time --max-memory-restart 2000M --log words-logs.log -- --expose-gc",
-    "api": "json-server --id _id src/data/Cc.json",
-    "server": "json-server --port 3004 --id _id src/data/Cc.json"
+    "api": "json-server --id _id src/data/Gg.json",
+    "server": "json-server --port 3004 --id _id src/data/file.json"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -35,10 +35,9 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
+    "puppeteer": "^15.3.2",
     "json-server": "^0.17.0",
     "ts-jest": "^27.0.7"
-  },
-  "dependencies": {
-    "puppeteer": "^15.3.2"
   }
+
 }

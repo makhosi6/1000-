@@ -60,7 +60,7 @@ const addToDB = (word, port = 3000) => __awaiter(void 0, void 0, void 0, functio
     catch (error) {
         console.log(error);
         console.log({ word });
-        addToDB(word, 3004);
+        // addToDB(word, 3004);
     }
 });
 // {
@@ -72,9 +72,10 @@ const fs = require('fs');
 /**
  * @description add a new entry on the file mentioned below(/words.text), every item will be add on a new line
  * @param {string} data
+ * @param {string} file - filename
  * @returns
  */
-const writeTxt = (data) => fs.writeFile("./words.txt", "\n" + data, { flag: 'a+' }, function (err) {
+const writeTxt = (data, file) => fs.writeFile(`./src/data/${file}.txt`, "\n" + data, { flag: 'a+' }, function (err) {
     if (err) {
         return console.log(err);
     }
@@ -127,7 +128,7 @@ const task = (browser, search, currentPage) => __awaiter(void 0, void 0, void 0,
                 .then((raw) => __awaiter(void 0, void 0, void 0, function* () {
                 console.log({ word: raw });
                 // save text
-                writeTxt(raw);
+                writeTxt(raw, search);
                 //
                 yield addToDB(raw);
             }));
@@ -161,7 +162,7 @@ const launch = () => __awaiter(void 0, void 0, void 0, function* () {
 // alphaArr.map(alpha => launch().then((browser) => task(browser, alpha, '1')));
 launch().then((br) => {
     try {
-        task(br, "c", "33");
+        task(br, "g", "1");
     }
     catch (error) {
         console.log("++++++");
