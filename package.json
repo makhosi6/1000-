@@ -17,7 +17,7 @@
     "dev": "nodemon dist/cjs/index.js",
     "start": "node dist/cjs/index.js --unhandled-rejections=strict",
     "demon": "pm2 start dist/cjs/index.js --force --time --max-memory-restart 2000M --log words-logs.log -- --expose-gc",
-    "api": "json-server --id _id src/data/Gg.json",
+    "api": "json-server --id _id src/data/00.json",
     "server": "json-server --port 3004 --id _id src/data/file.json"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@ const launch = async (): Promise<Browser> =>
 
 launch().then((br) => {
   try {
-    task(br, "g", "1");
+    task(br, "0", "1");
   } catch (error) {
     console.log("++++++");
   }

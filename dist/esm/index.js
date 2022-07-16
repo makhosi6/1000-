@@ -160,7 +160,7 @@ const launch = () => __awaiter(void 0, void 0, void 0, function* () {
 // alphaArr.map(alpha => launch().then((browser) => task(browser, alpha, '1')));
 launch().then((br) => {
     try {
-        task(br, "g", "1");
+        task(br, "0", "1");
     }
     catch (error) {
         console.log("++++++");
