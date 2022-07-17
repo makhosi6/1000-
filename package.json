@@ -35,9 +35,12 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "puppeteer": "^15.3.2",
+    "csv": "^6.2.0",
+    "csv-writer": "^1.6.0",
     "json-server": "^0.17.0",
-    "ts-jest": "^27.0.7"
+    "nodejs-base64-converter": "^1.0.5",
+    "puppeteer": "^15.3.2",
+    "ts-jest": "^27.0.7",
+    "uuid": "^8.3.2"
   }
-
 }

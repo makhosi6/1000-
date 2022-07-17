@@ -13,3 +13,11 @@ export const writeTxt = (data: string, file: string) =>  fs.writeFile(`./src/dat
     }
     console.log("The file was saved!");
 });
+
+/// create a csv file
+export const readCSV = (file: string) =>  fs.readFile(`./src/data/csv/${file}.csv`, { flag: 'a+' }, function(err: any, data: any) {
+    if(err) {
+        return console.log(err);
+    }
+    console.log("The file was saved!", data);
+});
