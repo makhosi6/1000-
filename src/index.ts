@@ -1,5 +1,5 @@
 import { readCSV } from './helpers';
-import { prepareCSV } from './job/csv';
+// import { prepareCSV } from './job/csv';
 import { Browser } from "../node_modules/puppeteer/lib/types";
 const puppeteer = require("puppeteer");
 
@@ -24,4 +24,4 @@ let alphaArr = ['0','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
 // });
 
 // alphaArr.map(a => readCSV(a))
-prepareCSV()
+// prepareCSV()
