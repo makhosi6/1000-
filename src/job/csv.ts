@@ -7,8 +7,9 @@ const nodeBase64 = require('nodejs-base64-converter');
 
 
 const csvWriter = (filename: string) => createObjectCsvWriter({
-    append : true,
-    path: `E:\F drive\projects\1000-\src\data\csv\e.csv`,
+    // append : true,
+    // path: `../data/csv/indexed.csv`,
+    path: `../data/csv/${filename}.csv`,
     header: [
         {id: '_key', title: 'key',  },
         {id: '_title', title: 'title'},
@@ -18,46 +19,45 @@ const csvWriter = (filename: string) => createObjectCsvWriter({
  
 
 
-//  [
-//     "0",
-//     "a",
-//     "b",
-//     "c",
-//     "d",
-//     "e",
-//     "f",
-//     "g",
-//     "h",
-//     "i",
-//     "j",
-//     "k",
-//     "l",
-//     "m",
-//     "n",
-//     "o",
-//     "p",
-//     "q",
-//     "r",
-//     "s",
-//     "t",
-//     "u",
-//     "v",
-//     "w",
-//     "x",
-//     "y",
-//     "z",
-// ]
-export const prepareCSV =  () => {
-
-    ['z'].map((alpha:string) => {
+const prepareCSV =  () => {
+    [
+       "0",
+       "a",
+       "b",
+       "c",
+       "d",
+       "e",
+       "f",
+       "g",
+       "h",
+       "i",
+       "j",
+       "k",
+       "l",
+       "m",
+       "n",
+       "o",
+       "p",
+       "q",
+       "r",
+       "s",
+       "t",
+       "u",
+       "v",
+       "w",
+       "x",
+       "y",
+       "z",
+   ].map((alpha:string) => {
         
         console.log(__dirname)
+        console.log(nodeBase64.encode('z'))
         console.log(__filename)
         const allFileContents = require("fs").readFileSync(`E:/F drive/projects/1000-/src/data/${alpha}.txt`, "utf-8");
         
         const records : Array<object> = (allFileContents.split(/\r?\n/)).map((item: string): object => {
             
-            return {_key: nodeBase64.encode(item),  _title: item, _category: alpha }
+            return {_key: nodeBase64.encode(item)  ,  _title: item || null, _category: alpha }
             
         })
         
@@ -70,3 +70,5 @@ export const prepareCSV =  () => {
             });
         })
     }
+
+    prepareCSV()
