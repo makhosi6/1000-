@@ -126,7 +126,11 @@ export async function getState(id = "urban_dict") {
  */
 export async function getBrowser(id = "browser") {
   ///
-  const response = await fetch(`http://192.168.0.134:3004/records/${id}`);
+
+  
+  const response = await fetch(`http://192.168.0.134:3003/memory/${id}`);
+
+  
 
   ///
   const data = await response.json();
