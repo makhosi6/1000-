@@ -30,7 +30,7 @@ import { getBrowser, getState, setState, urbanDict } from "./job/urbanDict";
 let json = require("../../src/data/urban/url_list.json");
 let index = -1;
 cron.schedule("* * * * *", async () => {
-  await setState("urban_dict", 0);
+  // await setState("urban_dict", 0);
   try {
     console.log("running a task every minute", Date.now());
    
@@ -55,8 +55,8 @@ cron.schedule("* * * * *", async () => {
 
     let params = {
       url: json.list[index],
-      brwser: null,
-      // brwser: currentBr.index,
+      // brwser: null,
+      brwser: currentBr.index,
       category: "lost",
     };
     urbanDict(params)

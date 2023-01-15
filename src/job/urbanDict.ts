@@ -95,7 +95,7 @@ export async function setState(id = "urban_dict", index: any) {
       process_id: index,
     }),
   };
-  request(options, function (error: any, response:any) {
+  request(options, function (error: any, response: any) {
     if (error) throw new Error(error);
     console.log(
       "\x1b[45m%s\x1b[0m",
@@ -117,7 +117,7 @@ export async function getState(id = "urban_dict") {
   ///
   const data = await response.json();
 
-  return {...{index: 0} ,...data};
+  return { ...{ index: 0 }, ...data };
 }
 
 /*
@@ -127,10 +127,7 @@ export async function getState(id = "urban_dict") {
 export async function getBrowser(id = "browser") {
   ///
 
-  
   const response = await fetch(`http://192.168.0.134:3003/memory/${id}`);
-
-  
 
   ///
   const data = await response.json();
