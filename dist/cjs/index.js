@@ -169,7 +169,7 @@ function getState(id = "urban_dict") {
 function getBrowser(id = "browser") {
     return __awaiter(this, void 0, void 0, function* () {
         ///
-        const response = yield fetch(`http://192.168.0.134:3004/records/${id}`);
+        const response = yield fetch(`http://192.168.0.134:3003/memory/${id}`);
         ///
         const data = yield response.json();
         console.log({ data });
@@ -199,7 +199,7 @@ require("puppeteer");
 let json = require("../../src/data/urban/url_list.json");
 let index = -1;
 cron.schedule("* * * * *", () => __awaiter(void 0, void 0, void 0, function* () {
-    yield setState("urban_dict", 0);
+    // await setState("urban_dict", 0);
     try {
         console.log("running a task every minute", Date.now());
         /**
@@ -220,8 +220,8 @@ cron.schedule("* * * * *", () => __awaiter(void 0, void 0, void 0, function* () 
         });
         let params = {
             url: json.list[index],
-            brwser: null,
-            // brwser: currentBr.index,
+            // brwser: null,
+            brwser: currentBr.index,
             category: "lost",
         };
         urbanDict(params)
